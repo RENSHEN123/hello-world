@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米币商城</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        ul{
+            list-style-type:none;
+            position:fixed;
+            top:-20px;
+            overflow: hidden;
+        }
+        li{
+            float:left;
+        }
+        li a{
+            display:block;
+            width:60px;
+            /* height:300px; */
+            background-color: rgba(48, 58, 59, 0.692);
+            padding:7px;
+            text-align: center;
+            color:white;
+            text-decoration: none;
+        }
+        li a:hover{
+            background-color: #555;
+            color: white;
+        }
+        h1{
+            color:gold;
+            text-align:center;
+        }
+        .active{
+            background-color:rgba(49, 79, 83, 0.692);
+        }
+        #shop,#home,#chong{
+            
+            display:none;
+        }
+        #shop:target,#home:target,#chong:target{
+            display:block;
+        }
+        
+        h5{
+            
+            text-align: center;
+        }
+        .one{
+            width:200px;
+            height:200px;
+            border:1px solid black;
+            position:absolute;
+            left:160px;
+            top:240px;
+        }
+        .six{
+            position:absolute;
+            left:400px;
+            top:240px;
+            border: 1px solid black;
+            width:200px;
+            height:200px;
+        }
+        .fourty{
+            position:absolute;
+            left:640px;
+            top:240px;
+            border: 1px solid black;
+            width:200px;
+            height:200px;
+        }
+        .hundred{
+            position:absolute;
+            left:160px;
+            top:480px;
+            border: 1px solid black;
+            width:200px;
+            height:200px;
+        }
+        .three_hundred{
+            position:absolute;
+            left:400px;
+            top:480px;
+            border: 1px solid black;
+            width:200px;
+            height:200px;
+        }
+        .six_hundred{
+            position:absolute;
+            left:640px;
+            top:480px;
+            border: 1px solid black;
+            width:200px;
+            height:200px;
+        }
+        img{
+            width:50px;
+            height:50px;
+        }
+        #img_1{
+            
+            width:30%;
+            height:30%;
+        }
+        h3{
+            position:fixed;
+            top:-10px;
+            right:20px;
+        }
+        #img_2{
+            width:40%;
+            height:40%;
+        }
+        #img_3{
+            width:50%;
+            height:50%
+        }
+        #img_4{
+            width:60%;
+            height:60%
+        }
+        #img_5{
+            width:70%;
+            height:70%
+        }
+        #img_6{
+            width:80%;
+            height:80%
+        }
+        #save{
+            position:fixed;
+            right:150px;
+            top:10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a vlass="active" href="#home">首页</a></li>
+        <li><a href="#shop">商城</a></li>
+        <li onclick="password()"><a href="#chong">充值</a></li>
+    </ul>
+    <h1>米币商城</h1>
+    <div id="home">
+        主页
+        <img src="" alt="">
+    </div>
+    <div id="shop">
+        <h2>商店</h2>
+        <h5>商店，一切米币的最终去处</h5>
+    </div>
+    <div id="chong">
+        <h2>米币充值</h2>
+        <div class="one" onclick="M()">
+            <img src="52116971_303.jpg" id="img_1">
+            <h5>1M</h5>
+        </div>
+        <div class="six" onclick="six_M()">
+            <img src="52116971_303.jpg" id="img_2">
+            <h5>6M</h5>
+        </div>
+        <div class="fourty" onclick="four_M()">
+            <img src="52116971_303.jpg" id="img_3">
+            <h5>45M</h5>
+        </div>
+        <div class="hundred" onclick="hun_M()">
+            <img src="52116971_303.jpg" id="img_4">
+            <h5>128M</h5>
+        </div>
+        <div class="three_hundred" onclick="threehun_M()">
+            <img src="52116971_303.jpg" id="img_5">
+            <h5>328M</h5>
+        </div>
+        <div class="six_hundred" onclick="sixhun_M()">
+            <img src="52116971_303.jpg" id="img_6">
+            <h5>648M</h5>
+        </div>
+        <button id="save" onclick="cun()">保存</button>
+        <button id="break" onclick="restart()">一键重置</button>
+    </div>
+    <h3 id="yue">米币余额 : 0</h3>
+    <script scr="jquery.js"></script>
+    <script>
+        //var Map=position map;
+        
+        let a =Number(document.cookie);;
+        function restart(){
+            a=0;
+            document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+        }
+        function password(){
+            var a=prompt("password")
+            if(a=="Miler0301"){
+                alert("welcome!")
+                document.getElementById("chong").style.display="block";
+                let x=Number(document.cookie);
+                document.getElementById("yue").innerHTML=("米币余额 : "+ x);
+            }
+            else{
+                document.getElementById("chong").style.display="none";
+            }
+        }
+        function M(){
+            a+=1;
+            document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+
+        }
+        function cun(){
+            var r=confirm("确定要保存吗？");
+                if (r==true)
+                {
+                    
+                    document.cookie=a;
+                    
+                    document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+                    alert("保存成功！")
+                }
+                else
+                {
+                    return 0;
+                }
+            
+        }
+        function six_M(){
+            a+=6;
+            document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+
+        }
+        function four_M(){
+            a+=45;
+            document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+
+        }
+        function hun_M(){
+            a+=128;
+            document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+
+        }
+        function threehun_M(){
+            a+=328;
+            document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+
+        }
+        function sixhun_M(){
+            a+=648;
+            document.getElementById("yue").innerHTML=("米币余额 : "+ a);
+            
+        }
+    </script>
+</body>
+</html>
